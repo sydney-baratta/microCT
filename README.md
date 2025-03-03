@@ -25,6 +25,7 @@ You can install them via `pip`:
 ```bash
 pip install numpy pandas matplotlib scipy opencv-python pillow
 "# microCT"
+```
 
 ## Code Structure
 
