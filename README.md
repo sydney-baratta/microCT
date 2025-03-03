@@ -7,7 +7,7 @@ This Jupyter notebook contains code for processing and analyzing 2D binary image
 1. **Converting BMP images to PNG** - Converts BMP images to PNG format if not already done.
 2. **Batch Processing of Images** - Crops circular regions of interest from images in batches.
 3. **Handling Interrupted Runs (OPTIONAL)** - Checks if cropped versions of images already exist in case of an interruption during batch processing.
-4. **Computing Specific Surface Area (SSA)** - For each image, the notebook calculates and stores the SSA in both X and Z directions using autocorrelation functions.
+4. **Correlation Lengths & Computing Specific Surface Area (SSA)** - For each image, the notebook calculates and stores the SSA in both X and Z directions using autocorrelation functions.
 
 ## Dependencies
 
@@ -29,10 +29,10 @@ pip install numpy pandas matplotlib scipy opencv-python pillow
 
 ## Code Structure
 
-# Cell 1: Import Libraries
+**Cell 1: Import Libraries**
 In this section, the necessary libraries are imported for the entire analysis. These include libraries for data manipulation (pandas, numpy), image processing (PIL, opencv-python), and plotting (matplotlib). Additionally, some helper functions for displaying output in Jupyter are imported.
 
-# Cell 2: Convert BMP to PNG
+**Cell 2: Convert BMP to PNG**
 This section handles the conversion of BMP images to PNG format. It processes all BMP images in a specified directory by:
 
   - Loading the images using the Python Imaging Library (PIL).
@@ -41,7 +41,7 @@ This section handles the conversion of BMP images to PNG format. It processes al
   - Saving the newly created binary images in PNG format.
   - This step ensures that all images are in a suitable format for further processing.
 
-# Cell 3: Batch Processing of Images (Cropping)
+**Cell 3: Batch Processing of Images (Cropping)**
 This section processes images in batches to crop circular regions of interest from each image. The cropping process involves:
 
   - Loading each image in grayscale.
@@ -50,12 +50,12 @@ This section processes images in batches to crop circular regions of interest fr
   - Saving the cropped versions of each image with a new filename that indicates they have been cropped.
   - Batch processing helps manage memory usage and optimizes processing for large datasets.
 
-# Cell 4: Handle Interrupted Runs
+**Cell 4: Handle Interrupted Runs (OPTIONAL)**
 In case the previous image processing step is interrupted (for example, due to a system shutdown or error), this section ensures that the program does not reprocess images that have already been cropped. It checks if a cropped image already exists for each original image and skips processing if a cropped version is already found.
 
 This step helps avoid unnecessary reprocessing and saves time, especially when working with large datasets.
 
-# Cell 5: Specific Surface Area (SSA) Calculation
+**Cell 5: Correlation Lengths & Specific Surface Area (SSA) Calculation**
 This final step calculates the Specific Surface Area (SSA) for each processed image. The SSA is computed using autocorrelation functions (ACF). The main tasks here include:
 
   - Extracting relevant metadata (e.g., slice height) from the filenames.
